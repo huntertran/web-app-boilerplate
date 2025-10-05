@@ -75,12 +75,20 @@ namespace web_app_boilerplate.Users
         // POST: api/User
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public ActionResult<User> PostUser(User user)
         {
             _context.UsersItem.Add(user);
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(User), new { id = user.Id }, user);
+            var result = _context.SaveChanges();
+
+            if (result == 0)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return CreatedAtAction(nameof(PostUser), user);
+            }
         }
 
         // DELETE: api/User/5
