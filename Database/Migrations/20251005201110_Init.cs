@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace web_app_boilerplate.Migrations
+namespace web_app_boilerplate.Database.Migrations
 {
     /// <inheritdoc />
     public partial class Init : Migration
@@ -11,7 +11,7 @@ namespace web_app_boilerplate.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "UsersItem",
+                name: "Users",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "INTEGER", nullable: false)
@@ -20,7 +20,7 @@ namespace web_app_boilerplate.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UsersItem", x => x.Id);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
         }
 
@@ -28,7 +28,7 @@ namespace web_app_boilerplate.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "UsersItem");
+                name: "Users");
         }
     }
 }

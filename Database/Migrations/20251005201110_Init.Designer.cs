@@ -3,14 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Users;
 
 #nullable disable
 
-namespace web_app_boilerplate.Migrations
+namespace web_app_boilerplate.Database.Migrations
 {
-    [DbContext(typeof(UserContext))]
-    [Migration("20251005193552_Init")]
+    [DbContext(typeof(AppContext))]
+    [Migration("20251005201110_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -30,7 +29,7 @@ namespace web_app_boilerplate.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UsersItem");
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

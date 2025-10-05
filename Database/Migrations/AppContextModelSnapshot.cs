@@ -2,14 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Users;
 
 #nullable disable
 
-namespace web_app_boilerplate.Migrations
+namespace web_app_boilerplate.Database.Migrations
 {
-    [DbContext(typeof(UserContext))]
-    partial class UserContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AppContext))]
+    partial class AppContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -27,7 +26,7 @@ namespace web_app_boilerplate.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UsersItem");
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }
